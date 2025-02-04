@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const CoinContext = createContext();
 
-const CoinContextProvider = (props) => {
+const CoinContextProvider = ({ children }) => {
   const [allCoin, setAllCoin] = useState([]);
   const [currency, setCurrency] = useState({
     name: "usd",
@@ -10,21 +10,22 @@ const CoinContextProvider = (props) => {
   });
 
   const fetchAllCoin = async () => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        "x-cg-demo-api-key": "VITE_API_URL"
-      },
-    };
-
-    fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
-      options
-    )
-      .then((res) => res.json())
-      .then((res) => setAllCoin(res))
-      .catch((err) => console.error(err));
+    try {
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
+        {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            "x-cg-demo-api-key": "VITE_API_URL"
+          },
+        }
+      );
+      const data = await response.json();
+      setAllCoin(data);
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
+    }
   };
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const CoinContextProvider = (props) => {
 
   return (
     <CoinContext.Provider value={contextValue}>
-      {props.children}
+      {children}
     </CoinContext.Provider>
   );
 };

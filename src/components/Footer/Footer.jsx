@@ -1,10 +1,13 @@
-import React from 'react'
+
 import './Footer.css'
 
 const Footer = () => {
   return (
     <div className='footer'>
-      <p>CopyRight</p>
+      <p>CopyRight 2025  All Right Reserved By <br />
+        <a href="https://iamhimanshu.in">Himanshu</a>
+      </p>
+      
     </div>
   )
 }

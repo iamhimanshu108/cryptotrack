@@ -34,8 +34,8 @@ const Home = () => {
   return (
     <div className='home'>
       <div className='hero'>
-        <h1>Largest <br /> Crpto MaketPlace</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam autem numquam quos beatae maxime eius cum aliquam a quam blanditiis.</p>
+        <h1>Largest <br /> Crpto Track MaketPlace</h1>
+        <p>The page promotes itself as the largest cryptocurrency tracking marketplace, listing prices and 24-hour changes for various cryptocurrencies</p>
         <form  onSubmit={searchHandler}>
           <input  onChange={inputHandler} list='coinlist' value={input} type="text" placeholder='search crypto.' required />
 
