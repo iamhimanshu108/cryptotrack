@@ -1,7 +1,6 @@
 
 import './Navbar.css'
 import logo from '../../assets/logo1.png';
-import arrow_icon from '../../assets/arrow_icon.png';
 import { useContext } from 'react';
 import { CoinContext } from '../../context/CoinContext'; 
 import {Link} from 'react-router-dom'; 
@@ -37,7 +36,6 @@ const Navbar = () => {
                 <option value="eur">EUR</option>
                 <option value="inr">INR</option>
             </select>
-            <button>SIGN UP <img src={arrow_icon} alt="" /></button>
         </div>
     </div>
   )
